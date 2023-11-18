@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de revisão</title>
+</head>
+<body>
+    
+    
+    <script>
+
+        function Cadastro(nome, sobrenome, idade){
+            this.nome = nome;
+            this.sobrenome = sobrenome;
+            this.idade = idade;
+        }
+
+        var pessoa1 = new Cadastro('Alberth', 'Santana', 33);
+        var pessoa2 = new Cadastro('Maria', 'Das Dores', 46);
+        var pessoa3 = new Cadastro('Francisco', 'Beltrão', 72);
+        var pessoa4 = new Cadastro('Aline', 'Moreire', 32);
+        
+        var cadastroDePessoa = [pessoa1, pessoa2, pessoa3 ];
+
+        cadastroDePessoa.push(pessoa4)
+
+        var i = 0;
+
+        while(cadastroDePessoa[i]){
+
+            console.log(cadastroDePessoa[i].nome + " " + cadastroDePessoa[i].sobrenome +  " " + cadastroDePessoa[i].idade + " anos." )
+
+            i++
+
+        }
+        
+    </script>
+       
+   
+</body>
+</html>

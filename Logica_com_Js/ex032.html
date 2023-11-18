@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicios</title>
+    <style>
+        body {
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Textarea</h1>
+
+    <textarea name="msg" id="msg" cols="60" rows="20" style = "resize: none;" maxlength="150"></textarea>
+    
+    <div>Restam <span id="resta"></span> caracteres</div> 
+
+    <script>
+        
+        (function(){
+            'use strict';
+            
+            var $msg = document.getElementById('msg');
+            var $resta = document.getElementById('resta');
+            var maxima = $msg.maxLength;
+
+            $resta.textContent = maxima;
+            
+            $msg.addEventListener('input', checkLength);
+
+            function checkLength(){
+                var numeroDeLetras = this.value.length;
+                $resta.textContent = maxima - numeroDeLetras;
+            }
+
+
+        })()
+    </script>
+</body>
+
+</html>

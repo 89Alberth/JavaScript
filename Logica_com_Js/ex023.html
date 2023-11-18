@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicios</title>
+    <style>
+        body {
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+
+    </style>
+</head>
+
+<body>
+    <h1>Cadastro</h1>
+    <div class="output"></div>
+
+
+    <script>
+        var cadastro = [
+            {'nome': 'Paula Coleman', 'email': 'paula.coleman@example.com'},
+            {'nome': 'rene henry', 'email': 'rene.henry@example.com'},
+            {'nome': 'Lynn Walker', 'email': 'lynn.walker@example.com'},
+        ]
+
+        var msg = ''
+
+        for(var i = 0; i < cadastro.length; i++){
+            msg += '<h2> Nome:</h2> ' + '<h4>' + cadastro[i].nome + '</h4>';
+            msg += '<h2> Email:</h2> ' + '<h4>' + cadastro[i].email + '</h4>' + '<br><br>';
+        }
+
+        document.querySelector('.output').innerHTML = msg
+    </script>
+</body>
+
+</html>

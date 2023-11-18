@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicios</title>
+    <style>
+        body {
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+
+        #msg b{
+            font-size: 22px;
+        }
+    </style>
+</head>
+
+<body>
+    <p id="msg"></p>
+    <script>
+        (function(){
+            
+            var nome = prompt("Olá,como você se chama ? ")
+
+            var msg = document.getElementById('msg')
+
+            msg.innerHTML = "Seja bem vindo, " + '<b>' + nome  +'</b>'  +  " !"
+            /*Pedir usuario digitar nome (prompt)*/
+            /*armazenar em uma variavel*/
+            /*mostar tela mensagem de boas vindas com nome do usuario*/
+        })()
+        
+    </script>
+</body>
+
+</html>

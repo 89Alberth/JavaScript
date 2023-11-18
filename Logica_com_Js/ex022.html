@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicios</title>
+    <style>
+        body {
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Objetos</h1>
+    <p id="saida"></p>
+
+    <script>
+        var caneta = new Object()
+        caneta.nome = "Caneta"
+        caneta.preco = 2.80
+        caneta.qtd = 10
+
+        var msg = ""
+
+        msg += "Produto: " + caneta.nome + "<br>"
+        msg += "Valor: " + caneta.preco + "<br>"
+        msg += "Quantidade " + caneta.qtd + "<br>"
+
+        caneta.comprar = function(x) {
+            if(!x){
+                x = 1;
+            }
+            console.log('Comprou caneta')
+            this.qtd = this.qtd - x;
+            console.log(this.qtd);
+        }
+
+        document.querySelector('#saida').innerHTML = msg
+        
+    </script>
+</body>
+
+</html>

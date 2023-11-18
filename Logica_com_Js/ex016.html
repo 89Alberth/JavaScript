@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicios</title>
+    <style>
+        body {
+            font-family: sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+    <button onclick="mostrarAreaAlert()">Alert</button>
+    <button onclick="mostrarAreaSaida()">Saida</button>
+    <br>
+    <div id="saida"></div>
+
+    <script>
+        function mostrarAreaAlert(){
+            var n1 = parseFloat(prompt("Digite um número: "));
+            var n2 = parseFloat(prompt("Digite outro número: "));
+            alert( calcular(n1,n2) );
+        }
+
+        function mostrarAreaSaida(){
+            var n1 = parseFloat(prompt("Digite um número: "));
+            var n2 = parseFloat(prompt("Digite outro número: "));
+            document.querySelector('#saida').innerHTML=( calcular(n1,n2) );
+        }
+
+        function calcular(x, y){
+            return x / y
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicios</title>
+</head>
+
+<body>
+    <h2>Tabuada com while</h2>
+
+
+    <script>
+        var numero = parseInt(prompt("Digite um número para saber sua tabuada: "));
+
+        var indice = 1;
+
+        while (indice <= 10) {
+            document.write(numero + " x " + indice + " = " + (numero * indice) + "<br> <br>")
+
+            indice ++
+
+        }
+    </script>
+
+
+    <h2>Tabuada com for</h2>
+
+    <script>
+        var numero = parseInt(prompt("Digite outro número diferente: "))
+
+        for (var i = 1; i <= 10; i++) {
+            document.write(numero + " x " + i + " = " + (numero * i) + "<br> <br>")
+        }
+    </script>
+</body>
+
+</html>

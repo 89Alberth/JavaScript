@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicios</title>
+    <style>
+        body{
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Tabuada</h1>
+
+    <button onclick="tabuada()">Calcula tabuada</button>
+    <button onclick="limparTabuada()">Limpar tabuada</button>
+
+    <div id="tabuada"></div>
+
+
+    <script>
+
+        var mensagem = ""
+        var output = document.querySelector('#tabuada');
+
+        function tabuada() {
+            limparTabuada()
+            var numero = parseFloat(prompt("Digite o número: "));
+           
+            for (i = 0; i < 11; i++){   
+                mensagem += numero + " x " + i + " = " + (numero * i) + "<br>" ;   
+            }
+            output.innerHTML = mensagem
+            }
+
+        
+
+        function limparTabuada(){
+            mensagem = ""
+            output.innerHTML = mensagem
+        } 
+        
+        
+
+
+    </script>
+</body>
+
+</html>

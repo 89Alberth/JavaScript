@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicios</title>
+    <style>
+        body {
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Calculos</h1>
+
+    <button onclick="iniciarCalculo('+')">+</button>
+    <button onclick="iniciarCalculo('-')">-</button>
+    <button onclick="iniciarCalculo('/')">/</button>
+    <button onclick="iniciarCalculo('*')">x</button>
+    <br>
+    <br>
+
+    <div id="saida" style="background-color: black; color: white; padding: 5px; display: inline-block; width: 80px; height: 30px; display: flex;
+    justify-content: center;
+    align-items: center;"></div>
+
+
+    <script>
+        var n1 = parseFloat(prompt('Digite um número: '));
+        escrever(n1)
+
+        function iniciarCalculo (operador){
+            n1 = parseFloat(document.querySelector('#saida').textContent)
+            var n2 = parseFloat(prompt('Digite outro número: '))
+            var msg = calcular(operador,n1,n2)
+            escrever(msg)
+        }
+
+        function calcular(operador,n1,n2){
+            var resultado = null;
+            switch (operador) {
+                case '+':
+                    resultado = n1 + n2 
+                    break;
+
+                case '-':
+                    resultado = n1 - n2
+                    break;
+
+                case '/':
+                    resultado = n1 / n2
+                    break;
+
+                case '*':
+                    resultado = n1 * n2
+                    break;
+            }
+
+
+            return resultado.toFixed(2)
+        }
+
+
+
+
+        function escrever(mensagem){
+            var saida = document.querySelector('#saida')
+            saida.innerHTML = mensagem
+        }
+        
+
+    </script>
+</body>
+
+</html>

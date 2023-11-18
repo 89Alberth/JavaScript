@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicios</title>
+    <style>
+        body {
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Cursso javaScript</h1>
+
+    <input type="text" id="fullName" style="width: 300px; font-size: 18px;">
+
+    <script>
+
+        var name = "Alberth ";
+        var lastName = "Renato da costa Santana";
+        var fullName = name + lastName;
+
+        var $txtMsg = document.getElementById('fullName');
+        $txtMsg.value = fullName;
+        $txtMsg.readOnly = true;
+
+    </script>
+    
+</body>
+
+</html>

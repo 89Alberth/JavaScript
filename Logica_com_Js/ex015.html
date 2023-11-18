@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicios</title>
+    <style>
+        body {
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Calculos</h1>
+
+    <button onclick="calcular('+')">+</button>
+    <button onclick="calcular('-')">-</button>
+    <button onclick="calcular('/')">/</button>
+    <button onclick="calcular('*')">x</button>
+    <br>
+    <br>
+
+    <div id="resultado" style="background-color: black; color: white; padding: 5px; display: inline-block; width: 80px; height: 30px; display: flex;
+    justify-content: center;
+    align-items: center;"></div>
+
+
+    <script>
+        var n1 = parseFloat(prompt("Digite um número: "));
+
+        function escrever() {
+            var output = document.querySelector("#resultado");
+            output.innerHTML = n1.toFixed(2);
+        }
+
+        function calcular(x) {
+            switch (x) {
+                case "+":
+                    var n = parseFloat(prompt("Digite outro número: "));
+                    n1 = n1 + n;
+                    break;
+
+                case "-":
+                    var n = parseFloat(prompt("Digite outro número: "));
+                    n1 = n1 - n;
+                    break;
+
+                case "*":
+                var n = parseFloat(prompt("Digite outro número: "));
+                n1 = n1 * n;
+                break;
+
+                case "/":
+                    var n = parseFloat(prompt("Digite outro número: "));
+                    n1 = n1 / n;
+                    break
+            }
+            escrever()
+        }
+
+        
+
+
+
+
+
+    </script>
+</body>
+
+</html>

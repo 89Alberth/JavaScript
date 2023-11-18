@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        textarea{
+            resize: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Mensagem textarea</h1>
+    <textarea name="txtMsg" id="txtMsg" cols="50" rows="10" maxlength="80"></textarea>
+    <div style="display: none;" id="restaContainer">Restam <span id="restam"></span> caracteres</div>
+</body>
+
+<script>
+    (function(){
+        'use strict'
+
+        var $txtMsg = document.getElementById('txtMsg');
+        var $restam = document.getElementById('restam');
+        var $restaContainer = document.getElementById('restaContainer');
+        var maximo = $txtMsg.maxLength;
+        $restam.textContent = maximo;
+
+        $txtMsg.addEventListener('input', maxCaracteres);
+
+        $restaContainer.style.display = 'block';
+
+        function maxCaracteres(){
+            var numerosDeCaracteres = this.value.length;
+            $restam.textContent = maximo - numerosDeCaracteres;
+        }
+
+        
+
+    })()
+</script>
+</html>

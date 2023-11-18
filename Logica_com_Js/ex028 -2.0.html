@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<title>Curso Javascript Completo 2018</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	<script src="myFramework.js"></script>
+
+
+</head>
+    <body>
+        <div class="container">
+            <h1>Curso Javascript Completo 2018</h1>
+        </div>
+        
+        
+        <section>
+        	<div class="container">
+	        
+		      	<h2>Média dos alunos</h2>
+				<table class="table js-tabela">
+					<thead>
+						<tr>
+							<th>Nome</th>
+							<th>Nota 1</th>
+							<th>Nota 2</th>
+							<th>Nota 3</th>
+							<th>Nota 4</th>
+							<th>Média</th>
+							<th>Aprovação</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class="aluno" >
+							<td class="aluno-nome">Gertrude</td>
+							<td class="aluno-n1">10</td>
+							<td class="aluno-n2">8.5</td>
+							<td class="aluno-n3">9</td>
+							<td class="aluno-n4">7.5</td>	
+							<td class="aluno-m"></td>
+							<td class="aprovacao"></td>
+						</tr>
+
+						<tr class="aluno" >
+							<td class="aluno-nome">Rey</td>
+							<td class="aluno-n1">5</td>
+							<td class="aluno-n2">8.5</td>
+							<td class="aluno-n3">6.5</td>
+							<td class="aluno-n4">7.5</td>
+							<td class="aluno-m"></td>
+							<td class="aprovacao"></td>
+						</tr>
+
+						<tr class="aluno" >
+							<td class="aluno-nome">Jessilda</td>
+							<td class="aluno-n1">5</td>
+							<td class="aluno-n2">3.5</td>
+							<td class="aluno-n3">6.2</td>
+							<td class="aluno-n4">5.5</td>
+							<td class="aluno-m"></td>
+							<td class="aprovacao"></td>
+						</tr>
+
+						<tr class="aluno">
+							<td class="aluno-nome">Lindóia</td>
+							<td class="aluno-n1">6.5</td>
+							<td class="aluno-n2">8.5</td>
+							<td class="aluno-n3">10</td>
+							<td class="aluno-n4">7.5</td>
+							<td class="aluno-m"></td>
+							<td class="aprovacao"></td>
+						</tr>
+						<tr class="aluno" >
+							<td class="aluno-nome">Creysson</td>
+							<td class="aluno-n1">6.5</td>
+							<td class="aluno-n2">8</td>
+							<td class="aluno-n3">7.5</td>
+							<td class="aluno-n4">5</td>
+							<td class="aluno-m"></td>
+							<td class="aprovacao"></td>
+						</tr>
+					</tbody>
+				</table>
+	        	
+        	</div>	
+        </section>
+
+        <script>
+			(function(){
+				var trs = document.querySelectorAll('.js-tabela tbody .aluno');
+				var x = 0;
+
+				while(trs[x]){
+					var aluno = trs[x];
+
+					var tds = aluno.querySelectorAll('td');
+
+					var notas = recuperaNota(tds);
+
+					var media = calcularMedia.apply(this, notas);
+
+					var validarAprovacao = aprovacao(media);
+
+					aluno.querySelector('.aluno-m').textContent = media.toFixed(2);
+					aluno.querySelector('.aprovacao').textContent = validarAprovacao;
+					
+					x++
+				}
+
+
+
+				function recuperaNota(td){
+					var arr = [];
+					var x = 0;
+
+					while(td[x]){
+						if(!isNaN( td[x].textContent) && td[x].textContent !== ""){
+							arr.push(parseFloat(td[x].textContent))
+					}
+						x++
+					}
+
+					return arr;
+					
+				}
+
+
+
+
+				function aprovacao(media){
+				
+					if( media >= 6 ){
+						return "Aprovado"
+					}
+					else{
+						return "Reprovado"
+					}
+						
+					
+					
+				}
+			})()
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			/*(function(){
+				var trs = document.querySelectorAll('.js-tabela tbody .aluno');
+				var x = 0;
+
+				while(trs[x]){
+					var aluno = trs[x];
+					console.log(aluno);
+
+					var tds = aluno.querySelectorAll('td');
+					console.log(tds)
+
+					var notas = recuperaNota(tds);
+					
+					var media = calcularMedia.apply(this, notas);
+
+					aluno.querySelector('.aluno-m').textContent = media
+					x++
+					debugger
+				}
+				
+
+
+
+				function recuperaNota(tds){
+					var x = 0;
+					var arr = [];
+
+					while(tds[x]){
+						if(!isNaN( tds[x].textContent ) && tds[x].textContent !== ""){
+							arr.push(parseFloat(tds[x].textContent));
+						}
+						x++;
+					}
+					console.log(arr)
+					return arr;
+				}
+
+
+
+			})()
+*/
+			
+			
+          
+        </script>
+        
+    </body>
+</html>
