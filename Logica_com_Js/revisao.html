@@ -3,40 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        textarea{
-            resize: none;
-        }
-    </style>
+    <title>Textarea</title>
 </head>
 <body>
-    <h1>Mensagem textarea</h1>
-    <textarea name="txtMsg" id="txtMsg" cols="50" rows="10" maxlength="80"></textarea>
-    <div style="display: none;" id="restaContainer">Restam <span id="restam"></span> caracteres</div>
+    <textarea name="msg" id="txtMsg" cols="50" rows="10" style="resize: none;" maxlength="75"></textarea>
+
+    <div>Faltam <span id="resta"></span> caracteres</div>
+
+    <script>
+        (function(){
+            
+            var $txtMsg = document.getElementById('txtMsg');
+            var $resta =  document.getElementById('resta');
+            var maximo = $txtMsg.maxLength;
+
+            $resta.textContent = maximo;
+
+            $txtMsg.addEventListener('input', checked);
+
+            function checked(){
+                var numeroDeLetras = this.value.length;
+                $resta.textContent = maximo - numeroDeLetras; 
+            }
+
+            
+
+            
+        })()    
+    </script>
 </body>
-
-<script>
-    (function(){
-        'use strict'
-
-        var $txtMsg = document.getElementById('txtMsg');
-        var $restam = document.getElementById('restam');
-        var $restaContainer = document.getElementById('restaContainer');
-        var maximo = $txtMsg.maxLength;
-        $restam.textContent = maximo;
-
-        $txtMsg.addEventListener('input', maxCaracteres);
-
-        $restaContainer.style.display = 'block';
-
-        function maxCaracteres(){
-            var numerosDeCaracteres = this.value.length;
-            $restam.textContent = maximo - numerosDeCaracteres;
-        }
-
-        
-
-    })()
-</script>
 </html>
