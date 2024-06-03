@@ -1,23 +1,36 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exercicios</title>
-    <style>
-        body {
-            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-        }
-    </style>
+    <title>W3Schools</title>
 </head>
-
 <body>
-    <h1></h1>
+
+    <h1>O que posso fazer com Javascript</h1>
+    <hr>
+    <h2>trocar texto de um parágrafo</h2>
+    <p id="demo">Este é um parágrafo a ser mudado</p>
+    <button onclick="document.getElementById('demo').innerHTML = 'Este texto foi mudado com JavaScript'">Clique aqui</button>
 
 
-    <script>
 
-    </script>
+
+    <hr>
+    <h2>Trocar valor de um atributo HTML</h2>
+    <button onclick="document.getElementById('img').src = 'ligada.jpg'">Acender</button>
+    <img src="desligada.jpg" alt="" id="img">
+    <button onclick="document.getElementById('img').src = 'desligada.jpg'">Apagar</button>
+
+
+
+
+
+    <hr>
+    <h2>Altera estilo com javaScript</h2>
+    <p id="aumentarFonte">Este parágrafo terá seu estilo de sua fonte trocado com Js</p>
+    <button onclick="document.getElementById('aumentarFonte').style.fontSize = '32px'">Aumentar fonte</button>
+
+
 </body>
-
 </html>

@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicios</title>
+    <style>
+        body {
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+
+        ul{
+            max-width: 200px;
+            list-style-type: decimal;
+            background-color: #e7e6e6;
+            font-size: 16px;
+            border: 2px solid black;
+            border-radius: 5px;
+            padding: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        
+        .done{
+            text-decoration: line-through;
+            color: rgba(0, 0, 0, 0.479);
+            
+        }
+
+    
+    </style>
+</head>
+
+<body>
+    <h1>Lista de tarefas</h1>
+    <input type="text" id="task">
+    <button id="btn">Cadastrar</button>
+
+    <ul>
+        <li>Estudar Java Script</li>
+        <li>Estudar Html</li>
+        <li>Estudar Css</li>
+    </ul>
+
+
+    <script>
+       //Preciso referencias para acesssar ul,botão e input no JS ****
+       //criar evento de clique no botão que adiciona a task(função addTask) ****
+       //criar a função que adiciona task ****
+       //criar LI ****
+       //criar text node para colocar li dentro ****
+       //colocar texto dentro da LI ****
+       //colocar li dentro da ul ****
+       //limpar input e colocar focus no input ****
+       //limpar input ****
+       //colocar focu novamente no campo task ****
+       // Criar evento de clique na tecla ENTER para enviar dados do input para lista (Keyup, keyCode)
+       //criar variavel para acessar as li
+       //adiconar evento de clique na UL com uma função que verifica se o alvo do clique é uma li se for uma li chamar a função de troca de classe (parâmetro.target.node)
+        //validar se o target do clique e uma li
+            //Se o target for li chamar a função trocar de classe com parametro target
+            //chamar a funçao remover item da lista passando parametro target
+       //criar função que troca classe da task de forma que ela fique visualmente como task feita
+        //perguntar ao usuario se realmente deseja excluir task com condiciona if
+        //fim
+
+        (function(){
+            'use strict'
+
+            var $task = document.querySelector('#task');
+            var $btn = document.querySelector('#btn');
+            var $ul = document.querySelector('ul');
+
+            $btn.addEventListener('click', addTask);
+
+            function addTask()
+            {
+                var li = document.createElement('LI');
+                var text = document.createTextNode($task.value);
+
+                li.appendChild(text);
+                $ul.appendChild(li);
+
+                $task.value = "";
+                $task.focus();
+            }
+
+
+            $task.addEventListener('keyup', function(e)
+            {
+                if(e.keyCode === 13){
+                    addTask()
+                }
+            })
+
+
+            $ul.addEventListener('click', function(e){
+                if(e.target.nodeName === "LI"){
+                    taskComplete(e.target)
+                }
+            })
+
+
+            function taskComplete(li)
+            {
+                li.classList.toggle('done');
+            }
+
+
+
+        })();
+
+        
+        
+        
+       
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+       /*
+         //Preciso referencias para acesssar ul,botão e input no JS
+       var $ul = document.querySelector('ul');
+       var $task = document.querySelector('#task');
+       var $btn = document.querySelector('#btn');
+
+       
+
+       //criar evento de clique no botão que recupra valor da string dentro do input,transforamar em uma li e jogar ele dentro da ul
+       $btn.addEventListener('click', addTask);
+
+
+       // Criar evento de clique na tecla ENTER para enviar dados do input para lista (Keyup, keyCode)
+       $task.addEventListener('keyup', function(e){
+        if(e.keyCode === 13){
+            addTask();
+        }
+       })
+
+       //criar variavel para acessar a li
+       var $lis =  $ul.querySelectorAll('li');
+
+       
+       //adicionar evento de clique na UL com uma função que verifica se o alvo do clique é uma li se for uma li chamar a função de troca de classe (parâmetro.target.node)
+       $ul.addEventListener('click', function(e){
+        if(e.target.nodeName === "LI"){
+            toggleDone(e.target)
+        }
+       })
+
+       //criar função que troca classe da task de forma que ela fique visualmente como task feitat
+       function toggleDone(li){
+        li.classList.toggle('done')
+       }
+
+       
+
+       //criar a função que adiciona task
+       function addTask(){
+        var li = document.createElement('li') //criar um <li>
+        var text = document.createTextNode($task.value) //criar variavel com um valor que essa <li> deve receber.
+
+        li.appendChild(text) //atribuir esse valor dentro d li
+
+        $ul.appendChild(li) //colocar li dentro da ul
+
+
+
+        
+        //limpar input e colocar focus no input
+        $task.value = "" //limpar input
+        $task.focus();  //colocar focu novamente no campo task
+
+        
+        
+        
+       }*/
+       
+       
+
+    </script>
+</body>
+
+</html>

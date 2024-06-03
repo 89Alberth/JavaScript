@@ -15,13 +15,56 @@
 <body>
     <h1>Textarea</h1>
 
-    <textarea name="msg" id="msg" cols="60" rows="20" style = "resize: none;" maxlength="150"></textarea>
+    <textarea name="msg" id="msg" cols="60" rows="20" style = "resize: none;" maxlength="15"></textarea>
     
     <div>Restam <span id="resta"></span> caracteres</div> 
 
     <script>
-        
         (function(){
+            var $resta = document.querySelector('#resta');
+            var $msg = document.querySelector('#msg');
+            var max = $msg.maxLength;
+
+            $resta.textContent = max;
+
+            $msg.addEventListener('input', function(){
+                var numeroDeLetras = this.value.length;
+                $resta.textContent = max - numeroDeLetras;
+            })
+
+        })()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+       /* (function(){
             'use strict';
             
             var $msg = document.getElementById('msg');
@@ -38,7 +81,7 @@
             }
 
 
-        })()
+        })() */
     </script>
 </body>
 

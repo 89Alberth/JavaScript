@@ -81,33 +81,43 @@
         </section>
 
         <script>
-			(function(){
+			// Pegar indice de todas as trs
+			// criar variavel para iterar
+			// loop while enquanto ouver trs indice x
+			// criar referencias para as td
+			//criar variaveis 4 notas
+			//variaveis notas receber uma funçao que converta para numero flutuante
+			//variavel media recebe funçao que calcula media
+			//td media recebe resultado da funçao media
 
-				var trs = document.querySelectorAll('.js-tabela tbody .aluno');
+			//cria a função que converta para número flutuante as notas
+			(function(){
+				var trs = document.querySelectorAll('.js-tabela tbody .aluno')
+
 				var x = 0;
 
 				while(trs[x]){
-					var aluno = trs[x];
-					var dados = aluno.querySelectorAll('td');
+					var linhaAluno = trs[x];
+					var tds = linhaAluno.querySelectorAll('td');
 
-					var n1 = nota(dados[1]);
-					var n2 = nota(dados[2]);
-					var n3 = nota(dados[3]);
-					var n4 = nota(dados[4]);
+					var n1, n2, n3, n4, medida;
 
-					var media = calcularMedia(n1, n2, n3, n4);
+					n1 = nota(tds[1]);
+					n2 = nota(tds[2]);
+					n3 = nota(tds[3]);
+					n4 = nota(tds[4]);
 
-					aluno.querySelector('.aluno-m').textContent = media;
+					media = calcularMedia(n1, n2, n3, n4)
 
+					linhaAluno.querySelector('.aluno-m').textContent = media
 					x++
 				}
-
 
 				function nota(td){
 					return parseFloat(td.textContent);
 				}
+
 			})()
-				
 
 
 

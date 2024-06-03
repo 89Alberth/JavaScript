@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicios</title>
+    <style>
+        body {
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="text" id="nome"> 
+    <button id="btn">Enviar</button>
+    <h1></h1>
+
+
+    <script>
+        /*
+         escrever um programa que pegue seu ultimo nome e coloca em primeiro e concatena com resto do nome
+         1-pegar nome
+         2-identifica qual é ultimo nome
+         3-identificar o resto do nome
+         4-concatenar ultimo nome em primeiro com resto do nome depois por ultimo
+        */
+
+        (function(){
+            var $name = document.querySelector('#nome');
+            var $btn = document.querySelector('#btn');
+            $btn.addEventListener('click', validarNome);
+            $name.addEventListener('keyup', function(e){
+                if(e.keyCode === 13){
+                    validarNome(e)
+                }
+            })
+
+            function validarNome(){
+                var nome = $name.value;
+                var checkName = nome.lastIndexOf(' ');
+                var lastName = nome.slice(checkName)
+                var firstName = nome.slice(0, checkName)
+
+                var $Txt = document.querySelector('h1').innerHTML = lastName + " " + firstName
+
+            }
+        })()
+        
+    </script>
+</body>
+
+</html>

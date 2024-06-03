@@ -53,7 +53,7 @@
 <body>
     <div class="alinha">
         <h1>Formulário</h1>
-        <form autocomplete="off" method="post">
+        <form autocomplete="off" >
             <label for="userName">Nome:</label>
             <input type="text" id="userName" name="user">
             <br>
@@ -66,6 +66,49 @@
 
 
     <script>
+        var $Form = document.querySelector('form');
+        var $User = document.querySelector('#userName');
+        var $Pass = document.querySelector('#password');
+        var $Btn = document.querySelector('#btn');
+
+        $Form.addEventListener('submit', CheckForm);
+
+        function CheckForm(e)
+        {
+            if($User.value === "" || $Pass.value === ""){
+                alert("Todos os campos devem ser preenchido.");
+                e.preventDefault();
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        /*
         var $form = document.querySelector('form');
         var $txtName = document.getElementById('userName');
         var $password = document.getElementById('password');
@@ -77,6 +120,7 @@
                 e.preventDefault();
             }
         })
+        */
     </script>
 </body>
 

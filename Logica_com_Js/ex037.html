@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicios</title>
+    <style>
+        body {
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Páragrafos</h1>
+    <p>Lorem ipsum <b>dolor sit amet consectetur, adipisicing elit.</b> Id harum quod nihil inventore omnis impedit natus, repellat animi consequuntur, deleniti, voluptatibus molestiae quisquam. Nisi rem quod commodi, accusamus corporis maiores laboriosam suscipit itaque labore repudiandae fugit pariatur, recusandae assumenda modi eum dolores eaque deserunt necessitatibus sequi quasi, alias ratione non illo. Nulla vel asperiores nostrum aliquid minima accusamus nihil sapiente atque debitis harum, deleniti doloremque voluptatem provident, modi ducimus odit reprehenderit maxime in porro cupiditate sunt tenetur alias! Quos odit ad, quas assumenda ipsum, provident placeat tenetur nemo dignissimos nulla, enim doloremque aut impedit error. Voluptas, numquam fugiat beatae reprehenderit perspiciatis provident inventore asperiores exercitationem, fugit error blanditiis dolorem architecto repellat itaque sequi quae voluptate non! Aperiam cupiditate cumque est, enim necessitatibus quasi tempore mollitia quaerat. Ipsam animi odio dolorum nemo tempora maiores dolores consectetur eveniet explicabo quod, nobis accusantium veritatis minus cum quidem quia vel, a exercitationem soluta, dignissimos rem aspernatur voluptatem laudantium est? Ea quam quos nisi harum dolorem! Ducimus sint eveniet cum dolorem, autem dolore quas? Deleniti sed velit natus quasi itaque recusandae, magni deserunt inventore repellendus quam fugit quidem est odio! Quia minima dolore totam alias tempora consectetur officiis, inventore tenetur ratione eius minus quas, incidunt mollitia. Ab harum beatae cupiditate repellat, amet unde. Ipsam, eaque? Ipsa quos iste sunt numquam animi vero dicta ipsum et.</p>
+
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente quia totam nisi corporis provident fugit impedit modi amet, magni incidunt quam voluptatibus, atque vel officia molestias eius expedita, temporibus explicabo.</p>
+
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid, molestiae.</p>
+
+
+    <script>
+        /*
+        1-passar por todos os paragrafos da pagina
+        2-se o texto posssui menos de 250 caracteres deixar ele assim mesmo
+        3-formatar verficar se o texto possui mais de 250 caractere formatar ele deixando com apenas 250
+        
+        */
+        (function(){
+            var $paragrafos = document.getElementsByTagName('p');
+            var x = 0;
+
+            while($paragrafos[x]){
+                $paragrafos[x].textContent = formatarTxt($paragrafos[x].textContent)
+                x++
+            }
+
+
+            function formatarTxt(texto){
+                if(texto.length <= 250){
+                    return texto
+                }
+
+                var subtexto = texto.slice(0, 250)
+
+                return subtexto + "..."
+            }
+        })()
+            
+    </script>
+</body>
+
+</html>
