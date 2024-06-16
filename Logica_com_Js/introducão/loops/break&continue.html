@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Break & Continue</title>
+    <style>
+            body{
+                font-size: 1.3rem;
+                font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            }
+    </style>
+</head>
+<body>
+    <h1>Break e Continue</h1>
+    <script>
+        document.write("Break com loop For <br>")
+        let msg = ""
+        for(let i = 1; i <= 10; i++){
+            msg += i + "<br>"
+            if(i === 5 ){
+                break
+            }
+        }
+        document.write(msg)
+
+
+        document.write("<br>Continue com loop for<br>")
+        let msg2 = ""
+        for(let i = 1; i <= 10; i++){
+            if(i === 5 ){
+                continue
+            }
+            msg2 += i + "<br>"
+        }
+        document.write(msg2)
+
+
+        document.write("<br>Continue com loop while<br>")
+        let msg3 = ""
+        let c = 0
+
+        while (c <= 10) {
+            c++
+            if(c === 5){
+                continue
+            }
+            msg3 += c + "<br>"
+            
+        }
+        document.write(msg3)
+
+
+
+        
+
+        
+
+        
+        document.write("<br>FIM DO PROGRAMA")
+    </script>
+</body>
+</html>

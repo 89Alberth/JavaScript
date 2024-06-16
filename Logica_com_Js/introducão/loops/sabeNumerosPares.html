@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Número pares</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        let n = parseFloat(prompt("Digite um número: "))
+        let c = 1
+        let msg = ""
+
+        while (c <= n) {
+            if ( (c % 2) === 0) {
+                msg += c + " "
+            }
+            c++
+        }
+
+        document.write(msg)
+
+        
+
+    </script>
+</body>
+
+</html>
