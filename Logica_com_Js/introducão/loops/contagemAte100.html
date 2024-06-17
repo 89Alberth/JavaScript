@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+
+        let number = 0
+        let msg = ""
+        let sorteado = " "
+
+        while(number < 100){
+            number++
+            if(number % 10 === 0){
+                continue
+            }
+
+            let drawnNumber = parseInt(Math.random() * 100) + 1
+            sorteado += drawnNumber + "\n"
+            
+            
+            msg += number +  "<br>"
+
+            if(number % drawnNumber === 0){
+                break
+            }
+
+
+            
+            
+        }
+
+        console.log(sorteado)
+        document.write(msg)
+    </script>
+</body>
+</html>
