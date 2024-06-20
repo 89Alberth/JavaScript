@@ -9,11 +9,17 @@
     <h1>Arrays de nomes</h1>
 
     <script>
-        let nomes = ["Alberth", "Franciele", "Arthur", "Samira", "Edna", "Elias", "Wesley", "Anderson", "Gabriela", "Wilson"]
+        let nomes = ["Alberth", "Franciele", "Arthur", "Samira"]
+
+        let incluirNome = prompt("Digite nome: ")
+
+        nomes[nomes.length] = incluirNome
 
         for(let i = 0; i < nomes.length; i++){
             document.write("<br>Nome: " + nomes[i] + "<br>")
         }
+
+        document.write("A lista possui " + nomes.length + " itens.")
     </script>
 </body>
 </html>
