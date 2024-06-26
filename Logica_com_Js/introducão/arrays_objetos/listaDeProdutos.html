@@ -6,58 +6,58 @@
     <title>Tabela De Produtos</title>
     <style>
         body{
-            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
         }
 
-        table{
-            width: 300px;
-        }
-
-        table,td,th{
+        table,th,td{
             border: 1px solid black;
             border-collapse: collapse;
         }
 
         td,th{
-            padding: 10px;
+            padding: 9px;
+        }
+
+        td + td{
+            text-align: right;
         }
     </style>
+   
 </head>
 <body>
-    <h1>Tabela De Produtos</h1>
+    <h1>Tabela de preços</h1>
 
     <table>
         <thead>
-            <th>Produto</th>
+            <th>Nome</th>
             <th>Preço</th>
             <th>Quantidade</th>
         </thead>
 
-        <tbody id="listaDeProdutos"></tbody>
+        <tbody id="list">
+            
+        </tbody>
     </table>
 
     <script>
         const produtos = [
-            {nome: "caneta", preco: 1.35, quantidade: 10},
-            {nome: "régua", preco: 0.80, quantidade: 5},
-            {nome: "lápis", preco: 0.55, quantidade: 30},
-            {nome: "caderno", preco: 3.45, quantidade: 4},
-            {nome: "canetinha", preco: 2.20, quantidade: 7}
+            {nome:"caderno", preco:2.46, quantidade: 12},
+            {nome:"lápis", preco:0.85, quantidade: 65},
+            {nome:"borracha", preco:0.50, quantidade: 52},
+            {nome:"tinta-guache", preco:6.00, quantidade: 5},
+            {nome:"régua", preco:1.00, quantidade: 15},
+            {nome:"folha sulfite", preco:12.50, quantidade: 20},
         ]
-
-        const lista = document.getElementById('listaDeProdutos')
+        let lista = document.getElementById('list')
 
         for(let i = 0; i < produtos.length; i++){
-            lista.innerHTML += `
-            <tr>
-                <td>${produtos[i].nome}</td>
-                <td>${produtos[i].preco.toFixed(2)}</td>
-                <td>${produtos[i].quantidade}</td>
-            </tr>
-        `
+            lista.innerHTML += 
+            `
+            <td>${produtos[i].nome}</td>
+            <td><b>${produtos[i].preco.toFixed(2)}</b></td>
+            <td>${produtos[i].quantidade}</td>
+            `
         }
-
-        
     </script>
 </body>
 </html>
