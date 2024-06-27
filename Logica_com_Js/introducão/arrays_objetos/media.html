@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Média</title>
+    <style>
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <h1>Média do aluno</h1>
+
+    <div id="output"></div>
+
+    <!-- <h2>Nome: Alberth</h2>
+
+    <ul>
+        <li>5</li>
+        <li>8.5</li>
+        <li>6</li>
+        <li>7</li>
+    </ul>
+
+    <p>Média: 6</p>
+
+    <p>Aprovado? Não</p> -->
+
+    <script>
+        const aluno = {nome: "Alberth", notas:[5,5,9,7.5]}
+
+        let output = document.getElementById('output')
+
+        output.innerHTML = `<h2>Nome: ${aluno.nome}</h2>`
+        output.innerHTML += "<ul>"
+            let soma = 0
+            for(let i = 0; i < aluno.notas.length; i++){
+                soma += aluno.notas[i]
+                output.innerHTML += `<li>${aluno.notas[i]}</li>`
+            }
+        output.innerHTML += "</ul>"
+
+        let media = soma / aluno.notas.length
+        
+        output.innerHTML += `<p>Média: ${media.toFixed(2)}</p>`
+
+        let aprovado = (media >= 7) ? "SIM": "NÃO"
+
+        output.innerHTML += `Aprovado ? ${aprovado}`
+
+    </script>
+</body>
+</html>
