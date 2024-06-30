@@ -15,24 +15,30 @@
 
 <body>
     <h1>Mostrar tabuada</h1>
-    <input type="number" id="input" style="width: 80px; padding: 5px;"><br><br>
+    <input autofocus type="number" id="input" style="width: 80px; padding: 5px;"><br><br>
     <button onclick="tabuada()">Mostrar Tabuada</button>
     <button onclick="limpar()">Limpar</button>
     <div id="output"></div>
 
     <script>
+
         let msg = ""
         const input = document.getElementById('input')
         const output = document.getElementById('output')
 
         function tabuada() {
-            limpar()
-            const inputValue = parseFloat(input.value)
 
-            for (let i = 0; i <= 25; i++) {
-                msg += `${inputValue} X ${i} = ${inputValue * i} <br>`
+            limpar()
+            
+            const inputValue = parseFloat(input.value)
+            if (isNaN(inputValue)) {
+                alert("Você deve digitar um número")
+            } else {
+                for (let i = 0; i <= 25; i++) {
+                    msg += `${inputValue} X ${i} = ${inputValue * i} <br>`
+                }
+                output.innerHTML = "<br>" + msg
             }
-            output.innerHTML = msg
         }
 
 
