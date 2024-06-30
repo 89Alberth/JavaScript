@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ept-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Area de um circulo</title>
+</head>
+
+<body>
+    <label for="raio">
+        Raio Do Circulo
+        <input type="number" id="raio">
+    </label>
+
+    <button onclick="calcular()">Calcular área</button>
+    <br>
+
+    <output id="output"></output>
+
+    <script>
+        const raio = document.getElementById('raio')
+        const output = document.getElementById('output')
+
+        function calcular() {
+            const raioValue = parseFloat(raio.value) 
+            const pi = Math.PI
+            let resultado = pi * (raioValue * raioValue)
+
+            output.innerHTML = `O raio do circulo é de ${resultado.toFixed(0)}`
+
+        }
+
+    </script>
+</body>
+
+</html>
