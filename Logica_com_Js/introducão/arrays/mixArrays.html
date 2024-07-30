@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arrays misturado</title>
+</head>
+<body>
+    <script>
+        const arr = ["Alberth", 15, true, 62, "18", undefined, null, 5, "Santana"]
+        let soma = 0
+
+        for(let i = 0; i < arr.length; i++){
+            let n = arr[i]
+            if(typeof n === "number"){
+                soma += n
+            }
+        }
+
+        document.write("A soma de todos os número no array é de " + soma)
+    </script>
+</body>
+</html>

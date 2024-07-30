@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objetos</title>
+</head>
+<body>
+    <script>
+        const endereco = {
+            logradouro: "Rua das Balsas",
+            numero: 7
+        }
+
+        const cadastro = {
+            nome: "Alberth",
+            sobrenome: "Santana",
+            endereco
+        }
+
+        for(let prop in cadastro){
+            console.log(prop)
+            console.log(cadastro[prop])
+        }
+    </script>
+</body>
+</html>

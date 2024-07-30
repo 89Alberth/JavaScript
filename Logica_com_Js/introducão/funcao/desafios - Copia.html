@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafios</title>
+</head>
+
+<body>
+
+    <script>
+        
+        function soma(number1, number2) {
+            return number1 + number2
+        }
+
+        console.log(soma(5, 8))
+
+        function calcular(n1, n2, simb) {
+            switch (simb) {
+                case "+": return n1 + n2
+
+                case "-": return n1 - n2
+
+                case "*": return n1 * n2
+
+                case "/": return n1 / n2
+
+                default: return null
+            }
+        }
+
+        console.log(calcular(5, 2, "+"))
+        console.log(calcular(5, 2, "-"))
+        console.log(calcular(5, 2, "*"))
+        console.log(calcular(5, 2, "/"))
+        console.log(calcular(5, 2, "!"))
+
+        function verificarPar(num) {
+            return num % 2 === 0
+        }
+
+        console.log(verificarPar(6))
+        console.log(verificarPar(17))
+
+        function bissexto(ano) { 
+            return ano % 4 === 0 && ano % 100 !== 0 || ano % 400 === 0
+        }
+
+        console.log(bissexto(1800))
+        console.log(bissexto(2000))
+
+
+    </script>
+</body>
+
+</html>
