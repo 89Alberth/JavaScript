@@ -8,8 +8,6 @@ function pegaNota(indice) {
 }
 
 
-
-
 const indiceNotas = {
     n1: pegaNota("n1"),
     n2: pegaNota("n2"),
