@@ -1,20 +1,19 @@
 const trHead = document.querySelector("thead tr")
 const thHead = trHead.querySelectorAll("th")
-const alunoNotas = trHead.querySelectorAll("[aluno-nota]")
+const AlunoNota = trHead.querySelectorAll("[aluno-nota]")
 const indiceNotas = {}
 
 
-Array.from(alunoNotas).forEach(function (th) {
+Array.from(AlunoNota).forEach(function (th) { 
     let prop = th.getAttribute("aluno-nota")
     indiceNotas[prop] = pegaNota(prop)
 })
 
 
 
+
 function pegaNota(indice) {
-
     const indiceNota = trHead.querySelector(`[aluno-nota = ${indice}]`)
-
     const i = Array.from(thHead).indexOf(indiceNota)
     return i
 }
