@@ -1,34 +1,34 @@
-const trHead = document.querySelector("thead tr")
-const thHeader = trHead.querySelectorAll("th")
-const alunoNota = trHead.querySelectorAll("[aluno-nota]")
-const indice_nota = {}
+const trHeader = document.querySelector("thead tr")
+const thHeader = trHeader.querySelectorAll("th")
+const notasAluno = trHeader.querySelectorAll("[aluno-nota]")
+const notas = {}
 
-Array.from(alunoNota).forEach(function(th){
+Array.from(notasAluno).forEach(function(th){
     let prop = th.getAttribute("aluno-nota")
-    indice_nota[prop] = pegaNota(prop)
+    console.log(prop)
+    notas[prop] = pegaIndice(prop)
 })
 
-function pegaNota(indice){
-    const th = trHead.querySelector(`[aluno-nota = ${indice}]`)
-    const i = Array.from(thHeader).indexOf(th)
+function pegaIndice(indice){
+    let _indice = trHeader.querySelector(`[aluno-nota = ${indice}]`)
+    let i =  Array.from(thHeader).indexOf(_indice)
     return i
 }
 
 const trs = document.querySelectorAll("tbody tr")
-
 let x = 0
 let media = 0
+
 while(trs[x]){
-
     let tds = trs[x].querySelectorAll("td")
-
     media = average(
-        parseFloat(tds[indice_nota.n1].textContent),
-        parseFloat(tds[indice_nota.n2].textContent),
-        parseFloat(tds[indice_nota.n3].textContent),
-        parseFloat(tds[indice_nota.n4].textContent)
+        parseFloat(tds[notas.n1].textContent),
+        parseFloat(tds[notas.n2].textContent),
+        parseFloat(tds[notas.n3].textContent),
+        parseFloat(tds[notas.n4].textContent),
+        
     )
 
-    tds[indice_nota.media].textContent = media.toFixed(2)
+    tds[notas.media].textContent = media.toFixed(1)
     x++
 }
