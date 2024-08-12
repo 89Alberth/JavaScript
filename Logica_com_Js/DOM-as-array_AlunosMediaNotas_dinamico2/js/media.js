@@ -1,37 +1,31 @@
 const alunos = [
-    { nome: "Daniel", n1: 10, n2: 3, n3: 7.5, n4: 3 },
-    { nome: "Maria", n1: 10, n2: 9, n3: 3, n4: 9.5 },
-    { nome: "João", n1: 10, n2: 4.5, n3: 1, n4: 3.5 },
-    { nome: "Joana", n1: 1, n2: 3, n3: 9, n4: 1.5 },
-    { nome: "José", n1: 10, n2: 4.5, n3: 7, n4: 3 },
-    { nome: "Arnaldo", n1: 10, n2: 4.5, n3: 7, n4: 3 },
-    { nome: "Lucas", n1: 4.5, n2: 9, n3: 8, n4: 3 },
-    { nome: "Luana", n1: 3, n2: 7, n3: 9, n4: 3 },
-    { nome: "Beatriz", n1: 10, n2: 4, n3: 7, n4: 9 },
-    { nome: "Sergio", n1: 4.5, n2: 9.5, n3: 10, n4: 2 }
+    { nome: "Daniel", notas: [10, 3,  7.5,  3] },
+    { nome: "Maria", notas: [10, 9,  3,  9.5 ]},
+    { nome: "João", notas: [10, 4.5,  1,  3.5] },
+    { nome: "Joana", notas: [1, 3,  9,  1.5] },
+    { nome: "José", notas: [10, 4.5,  7,  3] },
+    { nome: "Arnaldo", notas: [10, 4.5,  7,  3] },
+    { nome: "Lucas", notas: [4.5, 9,  8,  3] },
+    { nome: "Luana", notas: [3, 7,  9,  3] },
+    { nome: "Beatriz", notas: [10, 4,  7,  9] },
+    { nome: "Sergio", notas: [4.5, 9.5,  10,  2] }
 ];
 
 alunos.forEach(aluno => {
-    aluno.media = average(
-        aluno.n1,
-        aluno.n2,
-        aluno.n3,
-        aluno.n4
-    )
+    aluno.media = average(...aluno.notas)
 })
 
+console.log(alunos)
+
+
 const html = alunos.map(aluno => 
-   `
+    `
     <tr>
         <td>${aluno.nome}</td>
-        <td>${aluno.n1}</td>
-        <td>${aluno.n2}</td>
-        <td>${aluno.n3}</td>
-        <td>${aluno.n4}</td>
+        ${aluno.notas.map(n => `<td>  ${n}  </td>`).join("")}
         <td>${aluno.media}</td>
     </tr>
-    ` 
+    `
 ).join("")
 
-document.querySelector('tbody').innerHTML = html
-
+document.querySelector("tbody").innerHTML = html
