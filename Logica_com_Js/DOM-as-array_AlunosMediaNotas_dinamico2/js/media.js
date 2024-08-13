@@ -20,7 +20,7 @@ console.log(alunos)
 
 const html = alunos.map(aluno => 
     `
-    <tr>
+    <tr class = ${aluno.media > 7 ?"aprovado" : "reprovado"}>
         <td>${aluno.nome}</td>
         ${aluno.notas.map(n => `<td>  ${n}  </td>`).join("")}
         <td>${aluno.media}</td>
