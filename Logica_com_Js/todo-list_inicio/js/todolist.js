@@ -7,7 +7,13 @@
     // const lis = ul.getElementsByTagName("li")
 
    
-    let arrTask = []
+    let arrTask = [
+        {
+            name: "task 1",
+            creatAt: Date.now(),
+            completed: false
+        }
+    ]
         
 
     function addEventLi(li) {
@@ -19,14 +25,48 @@
 
 
     function generateTaskLi(obj) {
-        const li = document.createElement("li")
-        li.className = "todo-item"
         const p = document.createElement("p")
+        const li = document.createElement("li")
+        const checkButton = document.createElement("button")
+        const editButton = document.createElement("i")
+        const removeTaskButton = document.createElement("i")
+
+        li.className = "todo-item"
+
+        checkButton.className = "button-check"
+        checkButton.innerHTML = '<i class="fas fa-check displayNone"></i>'
+        li.appendChild(checkButton)
+
         p.className = "task-name"
         p.textContent = obj.name
         li.appendChild(p)
-        addEventLi(li)
 
+        editButton.className = "fas fa-edit"
+        li.appendChild(editButton)
+
+        const containerEdit = document.createElement("div")
+        containerEdit.className = "editContainer"
+        const inputEdit = document.createElement("input")
+        inputEdit.className = "editInput"
+        inputEdit.setAttribute("type", "text")
+        containerEdit.appendChild(inputEdit)
+        const containerEditButton = document.createElement("button")
+        containerEditButton.className = "editButton"
+        containerEditButton.textContent = "Edit"
+        containerEdit.appendChild(containerEditButton)
+        const containerCancelButton = document.createElement("button")
+        containerCancelButton.className = "cancelButton"
+        containerCancelButton.textContent = "Cancel"
+        containerEdit.appendChild(containerCancelButton)
+
+
+
+        li.appendChild(containerEdit)
+
+        removeTaskButton.className = "fas fa-trash-alt"
+        li.appendChild(removeTaskButton)
+
+        addEventLi(li)
         return li
     }
 
