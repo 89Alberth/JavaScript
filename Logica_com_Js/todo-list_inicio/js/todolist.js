@@ -4,7 +4,7 @@
     const itemInput = document.getElementById("item-input") //campo input 
     const todoAddForma = document.getElementById("todo-add") //formulario
     const ul = document.getElementById("todo-list")
-    // const lis = ul.getElementsByTagName("li")
+    const lis = ul.getElementsByTagName("li")
 
    
     let arrTask = [
@@ -16,11 +16,11 @@
     ]
         
 
-    function addEventLi(li) {
-        li.addEventListener("click", function () {
-            console.log(this)
-        })
-    }
+    // function addEventLi(li) {
+    //     li.addEventListener("click", function () {
+    //         console.log(this)
+    //     })
+    // }
 
 
 
@@ -35,6 +35,7 @@
 
         checkButton.className = "button-check"
         checkButton.innerHTML = '<i class="fas fa-check displayNone"></i>'
+        checkButton.setAttribute("data-action", "checkButton")
         li.appendChild(checkButton)
 
         p.className = "task-name"
@@ -42,6 +43,7 @@
         li.appendChild(p)
 
         editButton.className = "fas fa-edit"
+        editButton.setAttribute("data-action", "editButton")
         li.appendChild(editButton)
 
         const containerEdit = document.createElement("div")
@@ -53,10 +55,12 @@
         const containerEditButton = document.createElement("button")
         containerEditButton.className = "editButton"
         containerEditButton.textContent = "Edit"
+        containerEditButton.setAttribute("data-action", "containerEditButton")
         containerEdit.appendChild(containerEditButton)
         const containerCancelButton = document.createElement("button")
         containerCancelButton.className = "cancelButton"
         containerCancelButton.textContent = "Cancel"
+        containerCancelButton.setAttribute("data-action", "containerCancelButton")
         containerEdit.appendChild(containerCancelButton)
 
 
@@ -64,9 +68,10 @@
         li.appendChild(containerEdit)
 
         removeTaskButton.className = "fas fa-trash-alt"
+        removeTaskButton.setAttribute("data-action", "deleteButton")
         li.appendChild(removeTaskButton)
 
-        addEventLi(li)
+       
         return li
     }
 
@@ -92,6 +97,35 @@
 
 
 
+    function clickedUl(e){
+        const dataAction = e.target.getAttribute("data-action")
+        console.log(dataAction)
+        if(!dataAction) return
+
+        let currentLi = e.target
+        console.log(currentLi)
+
+        while(currentLi.nodeName !== "LI"){
+            currentLi = currentLi.parentElement
+        }
+        
+        const currentLiIndex = [...lis].indexOf(currentLi)
+
+        const actions = {
+            deleteButton: function(){
+                arrTask.splice(currentLiIndex, 1)
+                renderTask()
+                console.log(arrTask)
+            }
+        }
+
+        if(actions[dataAction]){
+            actions[dataAction]()
+        }
+    }
+
+
+
 
     todoAddForma.addEventListener("submit", function (e) {
         e.preventDefault()
@@ -100,6 +134,9 @@
         itemInput.value = ""
         itemInput.focus()
     });
+
+
+    ul.addEventListener("click", clickedUl)
 
     renderTask()
 
