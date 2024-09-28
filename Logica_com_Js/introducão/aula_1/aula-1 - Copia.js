@@ -1,1 +1,0 @@
-alert("Olá mundo de um outro mundo")
