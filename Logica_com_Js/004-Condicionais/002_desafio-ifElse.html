@@ -13,7 +13,7 @@
         let nota_2 = parseFloat(prompt("Digite a segunda nota nota: "))
         let media = (nota_1 + nota_2) / 2
 
-        if (media > 4) {
+        if (media > 4 && (nota_1 > 0 && nota_2 > 0)) {
             alert("Aprovado")
         } else {
             alert("Reprovado")

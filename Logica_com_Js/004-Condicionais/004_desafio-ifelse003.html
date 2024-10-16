@@ -11,14 +11,19 @@
     <script>
         let nota_1 = parseFloat(prompt("Digite a primeira nota: "))
         let nota_2 = parseFloat(prompt("Digite a segunda nota nota: "))
-        let media = (nota_1 + nota_2) / 2
-
-        if (media > 4) {
-            alert("Aprovado")
+        
+        if (isNaN(nota_1) || isNaN(nota_2)) {
+            alert("Digite apenas números")
+        } else if (nota_1 > 10 || nota_2 > 10 || nota_1 < 0 || nota_2 < 0) {
+            alert("Digite somente número entre 0 e 10")
         } else {
-            alert("Reprovado")
+            let media = (nota_1 + nota_2) / 2
+            if (media < 4 || nota_1 == 0 || nota_2 == 0) {
+                alert("Reprovado")
+            } else {
+                alert("Aprovado")
+            }
         }
-
         alert("Fim do programa!!!")
     </script>
 </body>

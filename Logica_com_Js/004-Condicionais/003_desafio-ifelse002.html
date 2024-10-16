@@ -13,12 +13,16 @@
         let nota_2 = parseFloat(prompt("Digite a segunda nota nota: "))
         let media = (nota_1 + nota_2) / 2
 
-        if (media > 4) {
-            alert("Aprovado")
+        if(nota_1 > 10 || nota_2 > 10 || nota_1 < 0 || nota_2 < 0 || isNaN(nota_1) || isNaN(nota_2)){
+            alert("Digite somente número entre 1 e 10")
+            
         } else {
-            alert("Reprovado")
+            if(media < 4  || nota_1 == 0 || nota_2 == 0){
+                alert("Reprovado")
+            } else {
+                alert("Aprovado")
+            }
         }
-
         alert("Fim do programa!!!")
     </script>
 </body>
