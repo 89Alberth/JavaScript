@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estudos JavaScript</title>
+</head>
+<body>
+    <script>
+        let dado_1 = parseInt( (Math.random() * 6 ) + 1 )
+        let dado_2 = parseInt( (Math.random() * 6 ) + 1 )
+        let counter = 1
+        
+        console.log("Jogada: ", counter, "\nnúmeros sorteados foram: ", dado_1,  " - ", dado_2, "\n-----------------------------------")
+
+        while(dado_1 !== dado_2){
+            dado_1 = parseInt( (Math.random() * 6 ) + 1 )
+            dado_2 = parseInt( (Math.random() * 6 ) + 1 )
+            counter++
+            console.log("Jogada: ", counter, "\nnúmeros sorteados foram: ", "Dado 1: ", dado_1,  " - Dado 2:", dado_2, "\n-----------------------------------")
+        }
+
+        console.log("Fim do sorteio")
+    </script>
+</body>
+</html>

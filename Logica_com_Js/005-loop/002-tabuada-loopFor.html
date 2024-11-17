@@ -8,16 +8,15 @@
 <body>
     <script>
         let numero = prompt("Digite um número para saber sua tabuada: ")
-        let counter = 0
 
-        if(isNaN(numero)){
-            alert("Somente números")
-        } else{
-            while(counter <= 40){
-            document.write(numero + " x " + counter + " = " + (numero * counter) + "<br>")
-            counter++
+
+        if(!isNaN(numero)){
+            for(let i = 0; i <= 20; i++){
+                document.write(numero + " x " + i + " = " + (numero * i) + "<br>")
+            }
         }
-        }
+         
+        
  
     </script>
 </body>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estudos JavaScript</title>
+</head>
+
+<body>
+    <script>
+        let number = parseInt(prompt("Digite um número: "))
+        let resultado = 0
+        let msg = ""
+ 
+        for (let i = 1; i <= 100; i++) {
+            resultado = number * i
+            if ((i % 10) === 0) {
+                msg += number + " X " + i + " = " + resultado + "<br><hr>"
+            } else {
+                msg += number + " X " + i + " = " + resultado + "<br>"
+            }
+
+        }
+
+        document.write(msg)
+
+    </script>
+</body>
+
+</html>
