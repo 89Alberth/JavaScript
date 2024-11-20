@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estudos JavaScript</title>
+</head>
+
+<body>
+    <script>
+        let counter = 0
+        let numberPar = 0
+        let dado1,dado2
+
+        while (true) {
+            
+            dado1 = parseInt((Math.random() * 6) + 1)
+            dado2 = parseInt((Math.random() * 6) + 1)
+           
+            if(numberPar === 10) {
+                break
+            }
+        
+            counter++
+
+            if ((dado1 + dado2) % 2 === 0) {
+                numberPar++
+                document.write("<mark>" + dado1 + " " + dado2 + " = par " + counter + "<br></mark>")
+                continue
+            }
+
+            document.write(dado1 + dado2 + " = impar " + counter + "<br>" )  
+        }
+
+        document.write(" Foram jogados: " + counter + " vezes. <br>" + "Sendo pares " + numberPar )
+    </script>
+</body>
+
+</html>

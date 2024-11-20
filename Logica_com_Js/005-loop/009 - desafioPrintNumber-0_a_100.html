@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estudos JavaScript</title>
+</head>
+
+<body>
+    <script>
+        //Escrever na tela numeros de 0 a 100
+        //ignorar multiplos de 10
+        //A cada iteração sortei um numero de 1 a 100 se numero mostrado  for divisivel por numero sorteado interrompa a contagem
+        let msg = ""
+        let numberRandom
+
+        for (let i = 0; i <= 100; i++) {
+
+            numberRandom = parseInt(Math.random() * 100 + 1)
+            console.log(i, numberRandom)
+
+            if( i % numberRandom === 0 && i > 0) {
+                break
+            }
+
+            if( i % 10 === 0){
+                msg += "<hr>"
+                continue
+            }
+
+            
+
+            msg += i + "<br>"
+        }
+
+        document.write(msg)
+    </script>
+</body>
+
+</html>
