@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estudos JavaScript</title>
+    <style>
+        body{
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Introdução Array</h1>
+    <script>
+        let nomes = ["Alberth", "Maria", "Rafael", "Milton", "João", "Sebastião", "Francisco"]
+        let msg = ""
+
+        for (let i = 0; i < nomes.length; i++) {
+            msg += "Nome " + (i + 1) + ": "+ nomes[i] + "<br>"
+        }
+
+        document.write(msg + "<br>" + "A lista de nomes possui " + nomes.length + " nomes.")
+    </script>
+</body>
+
+</html>
