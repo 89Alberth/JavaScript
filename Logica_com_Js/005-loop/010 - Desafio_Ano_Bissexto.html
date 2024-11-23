@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estudos JavaScript</title>
+</head>
+
+<body>
+    <script>
+        let anoDeInicio = 1004
+        let anoFinal = parseInt(prompt("Escolha até que ano você gostaria de saber se e bissexto: "))
+        let msg = "Aqui está todos os anos bissexto a partir de 1004 até " + anoFinal + ":<br>"
+
+        while (anoDeInicio <= anoFinal) {
+            if((anoDeInicio % 4 === 0 && anoDeInicio % 100 !== 0) || anoDeInicio % 400 === 0) {
+                msg += anoDeInicio + " " + " "
+            }
+            anoDeInicio++
+        }
+
+        document.write(msg)
+    </script>
+</body>
+
+</html>
