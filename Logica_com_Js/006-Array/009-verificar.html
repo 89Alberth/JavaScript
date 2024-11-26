@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estudos JavaScript</title>
+    <style>
+        body {
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Introdução Array</h1>
+    <script>
+        let array = [3, 4, 8, 15, "Eita",  2, 21, 70, 101]
+        let verificador = false
+        let valorEncontrado = "Nenhum valor encontrado"
+
+        for(let i = 0; i < array.length; i++){
+            let n = array[i]
+
+            if(n === undefined || n === null || isNaN(n)){
+                verificador = true
+                valorEncontrado = n
+                break
+            }
+        }
+
+        alert("Verificamos o array.Undefined, Null ou NaN encontrado: " + verificador + "\n Foi encontrado: " + valorEncontrado)
+    </script>
+</body>
+
+</html>
