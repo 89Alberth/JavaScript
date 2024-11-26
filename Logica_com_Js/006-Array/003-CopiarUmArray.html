@@ -15,17 +15,18 @@
 <body>
     <h1>Introdução Array</h1>
     <script>
-        let nomes = ["Alberth", "Maria", "Rafael", "Milton"]
-        let msg = ""
-        let nome = prompt("Adicione um nome: ")
+        let numeros = [2, 3, 8, 16, 34, 102]
+        let numeros2 = []
 
-        nomes[nomes.length] = nome
-
-        for (let i = 0; i < nomes.length; i++) {
-            msg += "Nome " + (i + 1) + ": " + nomes[i] + "<br>"
+        for (let i = 0; i < numeros.length; i++) {
+            let numero = numeros[i] * 2
+            numeros2.push(numero)
+            document.write(numeros2[i] + "<br>")
         }
 
-        document.write(msg + "<br>" + "A lista de nomes possui " + nomes.length + " nomes.")
+
+        
+
     </script>
 </body>
 

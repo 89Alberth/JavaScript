@@ -15,17 +15,11 @@
 <body>
     <h1>Introdução Array</h1>
     <script>
-        let nomes = ["Alberth", "Maria", "Rafael", "Milton"]
-        let msg = ""
-        let nome = prompt("Adicione um nome: ")
+        const numeros = [5, 10, "63", "Qualquer coisa", null,"meio", undefined,8, true, 15, 20]
+        
+        let meio = parseInt(numeros.length / 2)
 
-        nomes[nomes.length] = nome
-
-        for (let i = 0; i < nomes.length; i++) {
-            msg += "Nome " + (i + 1) + ": " + nomes[i] + "<br>"
-        }
-
-        document.write(msg + "<br>" + "A lista de nomes possui " + nomes.length + " nomes.")
+        alert(numeros[meio])
     </script>
 </body>
 

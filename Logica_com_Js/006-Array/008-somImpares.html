@@ -15,17 +15,17 @@
 <body>
     <h1>Introdução Array</h1>
     <script>
-        let nomes = ["Alberth", "Maria", "Rafael", "Milton"]
-        let msg = ""
-        let nome = prompt("Adicione um nome: ")
+        let numeros = [3, 4, 8, 15, 2, 21, 70, 101]
+        let soma = 0
 
-        nomes[nomes.length] = nome
-
-        for (let i = 0; i < nomes.length; i++) {
-            msg += "Nome " + (i + 1) + ": " + nomes[i] + "<br>"
+        for (let i = 0; i < numeros.length; i++) {
+            if (numeros[i] % 2 !== 0) {
+                console.log(numeros[i])
+                soma += numeros[i]
+            }
         }
 
-        document.write(msg + "<br>" + "A lista de nomes possui " + nomes.length + " nomes.")
+        alert(soma)
     </script>
 </body>
 
