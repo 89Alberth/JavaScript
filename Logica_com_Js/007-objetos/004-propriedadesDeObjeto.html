@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <h1>Objetos</h1>
+    <script>
+        const endereco = {
+            logradouro: "Rua Don pasquale",
+            numero: 7
+        }
+
+        const pessoa = {
+            nome: "Alberth",
+            sobrenome: "Santana",
+            endereco
+        }
+
+        for(let prop in pessoa){
+            console.log(pessoa[prop])
+        }
+    </script>
+</body>
+</html>
