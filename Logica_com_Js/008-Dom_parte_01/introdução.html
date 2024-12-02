@@ -15,5 +15,20 @@
     <p>Este é apenas um páragrafo qualquer com um <i>frase itálica</i></p>
     <hr>
     <input type="text" value = "Valor Preenchido">
+    <hr>
+    
+    <ol id="listaDeTarefa">
+        <li>Escovar dente</li>
+        <li>orar</li>
+        <li>Ler a biblia</li>
+        <li>Tomar café</li>
+    </ol>
+
+    <script>
+        const lista = document.getElementById("listaDeTarefa")
+        let novaTarefa = "Ir trabalhar"
+
+        lista.innerHTML += `<li> ${novaTarefa} </li>`
+    </script>
 </body>
 </html>

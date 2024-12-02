@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arrays e Objetos</title>
+    <style>
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        ul{
+            width: 350px;
+            list-style-position: inside;
+        }
+
+        hr{
+            display: inline-block;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <ul id="lista"></ul>
+
+    <script>
+        const cadastros = [
+            { nome: "Alberth", email: "Alberth@server.com" },
+            { nome: "Franciele", email: "Franciele@server.com" },
+            { nome: "Arthur", email: "Arthur@server.com" },
+            { nome: "Samira", email: "Samira@server.com" }
+        ]
+
+        const lista = document.getElementById("lista")
+
+        for (let i = 0; i < cadastros.length; i++) {
+            lista.innerHTML += `<li>${cadastros[i].nome}: ${cadastros[i].email}</li><hr>`
+        }
+
+    </script>
+</body>
+
+</html>

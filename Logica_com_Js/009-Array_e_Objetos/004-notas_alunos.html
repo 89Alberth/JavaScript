@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Informações dos alunos</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Informações Dos Alunos</h1>
+
+    <ul id="listaAlunos"></ul>
+
+    <script>
+        const listaAlunos = document.getElementById("listaAlunos")
+
+        const alunos = [
+            { nome: "Maria", notas: [5, 6, 8, 9] },
+            { nome: "Sérgio", notas: [9.5, 8, 4, 3] },
+            { nome: "Fátima", notas: [3, 6, 5.5, 7] },
+            { nome: "Bernardo", notas: [0, 3.5, 4, 8] }
+        ]
+
+        let alunosHTML = ""
+
+        for (let i = 0; i < alunos.length; i++) {
+            alunosHTML += "<li>"
+            alunosHTML += "<h2>" + alunos[i].nome + "</h2>"
+            alunosHTML += "<ul>"
+
+            let media = 0
+
+            for (let j = 0; j < alunos[i].notas.length; j++) {
+                media += alunos[i].notas[j]
+                alunosHTML += "<li>" + alunos[i].notas[j] + "</li>"
+            }
+
+            media = media / alunos[i].notas.length
+
+            let aprovado = (media >= 7) ? "Sim" : "Não"
+
+            alunosHTML += "</ul>"
+            alunosHTML += "<h3>" + "Média: " + media.toFixed(2) + "</h3>"
+            alunosHTML += "<h4>" + "Aprovado: " + aprovado + "</h4>"
+            alunosHTML += "</li> <hr>"
+        }
+
+        listaAlunos.innerHTML = alunosHTML
+    </script>
+
+
+</body>
+
+</html>
