@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funções</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Funções introdução</h1>
+
+    <input type="number" id="number" value= 0 autocomplete="off">
+
+    <button onclick="tabuada()">Mostrar Tabuada</button>
+    <button onclick="limpar()">Limpar tabuada</button>
+
+    <hr>
+
+
+    <div id="output"><br></div>
+
+    <script>
+        const input = document.getElementById("number")
+        const output = document.getElementById("output")
+        let tabuadaHtml = ""
+
+
+        function tabuada() {
+            limpar()
+            const inputValue = parseFloat(input.value)
+
+            for (let i = 1; i <= 30; i++) {
+                tabuadaHtml += `${inputValue} x ${i} = ${inputValue * i} <br>`
+            }
+
+            output.innerHTML = tabuadaHtml
+        }
+
+        function limpar() {
+            tabuadaHtml = ""
+            output.innerHTML = ""
+        }
+
+        tabuada()
+
+
+    </script>
+</body>
+
+</html>

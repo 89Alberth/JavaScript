@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funções</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Área de um triângulo</h1>
+
+    <label>
+        Base
+        <input type="number" id="base">
+    </label>
+
+    <button onclick="areaValueInput()">Calcular Área Do Circulo</button>
+    <button onclick="areaValuePrompt()">Calcular Área Do Circulo</button>
+
+    <br><br>
+
+    <output id="output"></output>
+
+    <script>
+        const base = document.getElementById("base")
+        const output = document.getElementById("output")
+
+        function areaValueInput() {
+            let baseValue = parseFloat(base.value)
+            calcular(baseValue)
+        }
+
+        function areaValuePrompt () {
+            let baseValue = parseFloat(prompt("Digite um número: "))
+            calcular(baseValue)
+        }
+
+        function calcular(base) {
+            let pi = Math.PI
+            let _area = (pi * (base ** 2)).toFixed(2)
+            output.innerHTML = `A área de um circulo de base ${base} é ${_area}`
+        }
+    </script>
+</body>
+
+</html>

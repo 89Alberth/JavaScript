@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funções</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        main{
+            background-color: antiquewhite;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            padding: 1rem;
+            box-shadow: 5px 5px 15px black;
+            border-radius: 0.5rem;
+            width: 500px;
+        }
+
+        #slots {
+            font-size: 4rem;
+        }
+
+        #slot1,
+        #slot2,
+        #slot3 {
+            padding: 1rem;
+        }
+
+        #output {
+            font-size: 2rem;
+        }
+
+        .red{
+            background-color: red;
+        }
+
+        .green{
+            background-color: rgb(0, 255, 13);
+        }
+
+        .input{
+            width: 300px;
+        }
+
+        .input p {
+            text-align: center;
+        }
+
+        #wrappSaldo{
+            font-size: 2rem;
+            background-color: rgb(153, 255, 1);
+            padding: 0.5rem;
+            border-radius: 5px;
+        }
+    </style>
+
+
+</head>
+
+<body>
+    <main>
+        <div>
+            <p>Saldo: <span id="wrappSaldo">R$ <span id="saldo">0</span></p></span>
+        </div>
+        <div class="input">
+            <input type="number" id="deposito">
+            <button onclick="depositar()">Depositar</button>
+        </div>
+        <br>
+        <div class="input">
+            <p>Valor Da Jogada</p>
+            <input type="number" id="valorAposta" value="1">
+            <button onclick="play()" id="btnJogar">Jogar</button>
+            <button onclick="parar()">Parar</button>
+        </div>
+        <br>
+        <output id="output">Resultado</output>
+        <div id="slots">
+            <span id="slot1">0</span>
+            <span id="slot2">0</span>
+            <span id="slot3">0</span>
+        </div>
+    </main>
+
+
+    <script>
+        const btnJogar = document.getElementById("btnJogar")
+        const saldoJS = document.getElementById("saldo")
+        const deposito = document.getElementById("deposito")
+        const valorAposta = document.getElementById("valorAposta")
+        const output = document.getElementById("output")
+        const slot1 = document.getElementById("slot1")
+        const slot2 = document.getElementById("slot2")
+        const slot3 = document.getElementById("slot3")
+        let idInterval = null
+
+        saldoRender(localStorage.getItem("saldo"))
+
+        function saldo() {
+            return parseFloat(saldoJS.textContent)
+        }
+
+
+
+        function saldoRender(n) {
+            let saldo = n
+            saldoJS.innerHTML = saldo
+            localStorage.setItem("saldo", saldo)
+        }
+
+        function depositar() {
+            let depositoValue = parseFloat(deposito.value)
+            let atualizarSaldo = depositoValue + saldo()
+            if (depositoValue <= 0) {
+                output.innerHTML += ": Valor de déposito não inválido"
+                atualizarSaldo = saldo()
+                saldoRender(atualizarSaldo)
+                limparDeposito()
+            } else {
+                saldoRender(atualizarSaldo)
+                limparDeposito()
+                limparOutput()
+            }
+
+        }
+
+        function limparDeposito() {
+            return deposito.value = ""
+        }
+
+        function valorJogado() {
+            let valor = parseFloat(valorAposta.value)
+            return valor
+        }
+
+
+        function limparValorJogado() {
+            return valorAposta.value = 1
+        }
+
+        function debitarValorJogado() {
+            let valor = valorJogado()
+            let debitar = saldo() - valor
+            saldoRender(debitar)
+        }
+
+        function validarValorJogada() {
+            let valor = valorJogado()
+            let saldoAtual = saldo()
+            let validar = (valor > saldoAtual) ? true : false
+            return validar
+        }
+
+        function limparOutput() {
+            return output.innerHTML = "Resultado: "
+        }
+
+        function slot1Js(){
+            let slot1 = parseInt(Math.random() * 30 + 1)
+            return slot1
+        }
+
+        function slot2Js(){
+            let slot2 = parseInt(Math.random() * 30 + 1)
+            return slot2
+        }
+
+        function slot3Js(){
+            let slot3 = parseInt(Math.random() * 30 + 1)
+            return slot3
+        }
+
+        function sorteio() {
+            let _slot1 = slot1Js()
+            let _slot2 = slot2Js()
+            let _slot3 = slot3Js()
+            renderSorteio(_slot1, _slot2, _slot3)
+        }
+
+        function renderSorteio(sLot1, sLot2, sLot3) {
+            slot1.innerHTML = sLot1
+            slot2.innerHTML = sLot2
+            slot3.innerHTML = sLot3
+        }
+
+        function pararSorteio() {
+            clearInterval(idInterval)
+        }
+
+        function validarAcerto() {
+            let slot1Value = parseInt(slot1.textContent) 
+            let slot2Value = parseInt(slot2.textContent) 
+            let slot3Value = parseInt(slot3.textContent) 
+            let valor = valorJogado()
+            let atualizarSaldo = 0
+            let _saldo = saldo()
+            let premio = 0
+
+
+            if (slot1Value === slot2Value & slot2Value === slot3Value & slot3Value === slot1Value) {
+                premio = valor * 3
+                atualizarSaldo = _saldo + premio
+                saldoRender(atualizarSaldo)
+                output.classList.remove("red")
+                output.classList.add("green")
+                output.innerHTML += `Você ganhou R$${premio}`
+            } else if (slot1Value === slot2Value || slot2Value === slot3Value || slot3Value === slot1Value) {
+                premio = valor * 2
+                atualizarSaldo = _saldo + premio
+                saldoRender(atualizarSaldo)
+                output.classList.remove("red")
+                output.classList.add("green")
+                output.innerHTML += `Você ganhou R$${premio}`
+            } else {
+                output.classList.add("red")
+                output.innerHTML += `!!! ERROU !!!`
+            }
+        }
+
+    
+        function play() {
+            output.classList.remove("red")
+            output.classList.remove("green")
+            if (validarValorJogada()) {
+                output.innerHTML = "Saldo insuficiente."
+                limparValorJogado()
+            } else if (valorJogado() === 0 || valorJogado() < 0) {
+                output.innerHTML = "Coloque valor de aposta válido"
+            }
+            else {
+                btnJogar.disabled = true
+                valorAposta.disabled = true
+                limparOutput()
+                debitarValorJogado()
+                idInterval = setInterval(sorteio, 20)
+            }
+
+        }
+
+        function parar() {
+            pararSorteio()
+            validarAcerto()
+            btnJogar.disabled = false
+            valorAposta.disabled = false
+        }
+
+    </script>
+</body>
+
+</html>
