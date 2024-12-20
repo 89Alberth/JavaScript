@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funções</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Área de um triângulo</h1>
+
+    <label>
+        Base
+        <input type="number" id="baseInput">
+    </label>
+    <br><br>
+
+    <button  onclick="areaInputOutput()" >Pegar área input mostrar output</button>
+    <br><br>
+    <button onclick="areaInputAlert()">Pegar área input mostrar alert</button>
+    <br><br>
+    <button onclick="areaPromptOutput()">Pegar área prompt mostrar output</button>
+    <br><br>
+    <button onclick="areaPromptAlert()">Pegar área prompt mostrar alert</button>
+
+    <br><br>
+
+    <output id="output"></output>
+
+    <script>
+        const base = document.getElementById("baseInput")
+        const output = document.getElementById("output")
+
+        function areaInputOutput(){
+            let input = parseFloat(base.value)
+            let _calcular = calcular(input)
+            output.innerHTML = `A área de um circulo de base ${input} é ${_calcular}`
+        }
+
+        function areaInputAlert(){
+            let input = parseFloat(base.value)
+            let _calcular = calcular(input)
+            alert(`A área de um circulo de base ${input} é ${_calcular}`) 
+        }
+
+        function areaPromptOutput(){
+            let input = parseFloat(prompt("Digite um número: "))
+            let _calcular = calcular(input)
+            output.innerHTML = `A área de um circulo de base ${input} é ${_calcular}`
+        }
+
+        function areaPromptAlert(){
+            let input = parseFloat(prompt("Digite um número: "))
+            let _calcular = calcular(input)
+            alert(`A área de um circulo de base ${input} é ${_calcular}`) 
+        }
+
+
+        function calcular(base) {
+            let pi = Math.PI
+            let _area = (pi * (base ** 2)).toFixed(2)
+            return _area
+        }
+    </script>
+</body>
+
+</html>

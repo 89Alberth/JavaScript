@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funções</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Função Somar</h1>
+
+    <script>
+        function somar(n1, n2){
+            return n1 + n2
+        }
+
+        console.log(somar(5, 22))
+
+        function calcular(n1,simbolo, n2 ){
+            switch (simbolo) {
+                case "+":
+                    return n1 + n2
+                case "-":
+                    return n1 - n2
+                case "*":
+                    return n1 * n2
+                case "/":
+                    return n1 / n2         
+                default:
+                    alert("Operação incorreta")
+                    break
+            }
+        }
+
+        console.log("Soma: 8 + 2 = " + calcular(8, "+", 2))
+        console.log("Subtraçã: 15 - 3 = " + calcular(15, "-", 3))
+        console.log("Divisão: 15 / 3 = " + calcular(15, "/", 3))
+        console.log("Multiplicação: 15 x 3 = " + calcular(15, "*", 3))
+
+        function validarPar(n){
+            return n % 2 === 0
+        }
+
+        console.log( validarPar(2024))
+        console.log(validarPar(23))
+
+
+        function bissexto(ano){
+            return (ano % 4 === 0 && ano % 100 != 0) || ano % 400 === 0
+        }
+
+        console.log("Ano bissexto: " , bissexto(2024))
+
+    </script>
+    
+</body>
+
+</html>
