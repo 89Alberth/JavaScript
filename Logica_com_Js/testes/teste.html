@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const produto = {
+            nome: "Caneta",
+            preco: 1.65,
+            estoque: 15,
+            venda(qtd){
+                return this.estoque -= qtd
+            }
+        }
+
+        produto.venda(8)
+        console.log(produto.estoque)
+
+        produto.venda(5)
+        console.log(produto.estoque)
+    </script>
+</body>
+</html>

@@ -106,19 +106,20 @@
         const slot3 = document.getElementById("slot3")
         let idInterval = null
 
-        saldoRender(localStorage.getItem("saldo"))
+        
 
         function saldo() {
             return parseFloat(saldoJS.textContent)
         }
 
 
-
+       
         function saldoRender(n) {
             let saldo = n
             saldoJS.innerHTML = saldo
-            localStorage.setItem("saldo", saldo)
         }
+
+        saldoRender(saldo())
 
         function depositar() {
             let depositoValue = parseFloat(deposito.value)
@@ -255,6 +256,8 @@
             btnJogar.disabled = false
             valorAposta.disabled = false
         }
+        
+        
 
     </script>
 </body>

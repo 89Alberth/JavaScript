@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funções</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Try Catch</h1>
+
+    <div id="output"></div>
+    <div id="output2"></div>
+    <div id="output3"></div>
+    <div id="output4"></div>
+    
+    <script>
+        const usuario = {nome: "Alberth", email: "alberth@email.com"}
+
+        try {
+            document.getElementById("output").innerHTML = `Nome: ${usuario.nome} - Email: ${usuario.email}`
+        } catch (error) {
+            console.log(error)
+            console.log(error.message)
+        }
+    </script>
+
+
+    <script src="area.js"></script>
+
+
+    <script>
+        const output2 = document.getElementById("output2")
+        const output3 = document.getElementById("output3")
+        const output4 = document.getElementById("output4")
+        
+        try {
+            let retangulo = areaRetangulo(5, 4.5)
+            output2.innerHTML = `<br> A área do retângulo é de ${retangulo} `
+        } catch (error) {
+            console.log("Retangulo: ", error.message)
+        }
+
+        try {
+            let triangulo = areaTriangulo(8, 5)
+            output3.innerHTML = `<br>A área do triângulo é de ${triangulo}`
+        } catch (error) {
+            console.log("Triangulo: ", error.message)
+        }
+
+        try {
+            let circulo = areaCirculo(8)
+            output4.innerHTML = `<br> Área do circulo é de ${circulo} `
+        } catch (error) {
+            console.log("Circulo: ", error.message)
+        }
+
+
+        alert("Fim do programa")
+    </script>
+    
+</body>
+
+</html>
