@@ -1,0 +1,13 @@
+.box {
+    width: 200px;
+    height: 200px;
+    background-color: #f0f0f0;
+    border: 2px solid #333;
+    animation: mymove 5s infinite;
+  }
+  
+  @keyframes mymove {
+    from {border-color: red;}
+    to {border-color: blue;}
+  }
+
