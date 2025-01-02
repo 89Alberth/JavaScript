@@ -1,29 +1,30 @@
-const  arr = [5, 9, 25, 789, 1025]
+const arr = [1,2,3,4]
 
-//push adiciona um elemento noo final da array
-arr.push("Novo item")
-console.log("Push: ", arr)
+//reverse inverte os itens de um array 
+console.log(arr.reverse())
 
-//pop remove ultimo item do array e retorna ele
-const ultimoItem = arr.pop()
-console.log("\n Array original: ", arr)
-console.log(" Retorno Pop(): ", ultimoItem)
+//reduce: O método reduce() executa uma função reducer (fornecida por você) para cada elemento do array, resultando num único valor de retorno.
 
-//shift remove primeiro item de um e retorna ele
-const primeriroItem = arr.shift()
-console.log("\n Array original: ", arr)
-console.log(" Retorno shift(): ", primeriroItem)
+const reduceF = arr.reduce(function (acumulador, atual) {
+    console.log("acumulador: ",acumulador)
+    console.log("atual: ", atual)
+    return acumulador + atual
+})
 
-//unshift adiciona elemento por primeiro em um array
-arr.unshift("Item incluso")
-console.log("\n Array original: ", arr)
+console.log("Retorno: ", reduceF)
 
-//slice retorna uma copia de parte de um array a partir do indice passado. Ex: arr.splic(indice inical, indice final), não inclui o ultimo indice sendo pego o penultimo item do indice passado.
-const arrSlice = arr.slice(0, 3)
-console.log(" Slice: ", arrSlice)
-console.log("\n Array original: ", arr)
+const nomes = ["João", "Maria", "José", "Arthur", "Gabriel", "Samira", "Franciele", "Alberth", "Francisco"]
 
-//splice ele altera o item no  indice que é indicado por parâmetro em um array 
-const spliceArr = arr.splice(1, 2, 2025,1989)
-console.log(" Splice: ", spliceArr)
-console.log("\n Array original: ", arr)
+const ordemNome = nomes.reduce(function(objetoAtual, nome){
+    let primeiraLetra = nome[0]
+  
+    if(objetoAtual[primeiraLetra]){
+        objetoAtual[primeiraLetra]++
+    } else {
+        objetoAtual[primeiraLetra] = 1
+    }
+
+    return objetoAtual
+}, {})
+
+console.log(ordemNome)
