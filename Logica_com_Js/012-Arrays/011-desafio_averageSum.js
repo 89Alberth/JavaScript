@@ -6,7 +6,7 @@ function sum() {
     })
 
     if (isNumber){
-        throw Error("Only numbers")
+        throw Error("Must only numbers please")
     }
 
     const total = notas.reduce(function (soma, atual) {
@@ -16,8 +16,17 @@ function sum() {
     return total
 }
 
-function average() {
+try{
+    function average() {
     return sum(...arguments) / arguments.length
+    }
+    console.log(average("s", 10, 5, 10).toFixed(2))
+
+}catch(error) {
+    console.log(error.message)
 }
 
-console.log(average(6, 10, 5).toFixed(2))
+console.log("!!! FIM !!!!")
+
+
+
