@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Dom navegate node</h1>
+    <p> <a href="">este é um paragrafo com link</a></p>
+    <ul id="lista">
+        <li id="item1">Item 1</li>
+        <li id="item2">Item 2</li>
+        <li id="item3">Item 3</li>
+        <li id="item4">Item 4</li>
+        <li id="item5">Item 5</li>
+        <li id="item6">Item 6</li>
+    </ul>
+
+
+    <script>
+        //nextSibling e nextElementSibling
+        const _nextsibling = document.querySelector("ul").nextSibling
+        const _nextElementsibling = document.querySelector("ul").nextElementSibling
+        console.log(_nextsibling)
+        console.log(_nextElementsibling)
+
+        //previousSibling e nextElementSibling
+        const _previoussibling = document.querySelector("ul").previousSibling
+        const _previousElementsibling = document.querySelector("ul").previousElementSibling
+        console.log(_previoussibling)
+        console.log(_previousElementsibling)
+
+        const parent = document.querySelector("ul").children
+        console.log(parent)
+
+        const _ul = document.querySelector("ul")
+        
+        console.log(_ul.lastElementChild.hasChildNodes())
+    </script>
+
+</body>
+
+</html>
