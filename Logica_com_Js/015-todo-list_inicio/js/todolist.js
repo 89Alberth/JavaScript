@@ -4,6 +4,15 @@
     const listUl = document.getElementById("todo-list")
     // let lis = listUl.getElementsByTagName("li")
 
+    todoAdd.addEventListener("submit", function (e) {
+        e.preventDefault()
+        let task = inputAddTask.value
+        addTask(task)
+        renderTask()
+        inputAddTask.focus()
+        inputAddTask.value = ""
+    })
+
     let arrTasks = [
         {
             name: "Exampla One",
@@ -12,15 +21,17 @@
         }
     ]
 
-
-    function eventLi(li) {
-        li.addEventListener("click", function () {
-            console.log(this)
-        })
-
+    function addTask(task) {
+        arrTasks.push(
+            {
+                name: task,
+                createAt: Date.now(),
+                complete: false
+            }
+        )
     }
 
-    function generaterLi(obj){
+    function generaterLi(obj) {
         const li = document.createElement("li")
         const p = document.createElement("p")
         const checkButton = document.createElement("button")
@@ -32,7 +43,7 @@
         checkButton.className = "button-check"
         checkButton.innerHTML = `<i class="fas fa-check displayNone"></i>`
         li.appendChild(checkButton)
-        
+
         p.className = "task-name"
         p.textContent = obj.name
 
@@ -45,34 +56,24 @@
         li.appendChild(deleteButton)
 
         eventLi(li)
-        return li 
+        return li
     }
 
-    function renderTask(){
+
+    function eventLi(li) {
+        li.addEventListener("click", function () {
+            console.log(this)
+        })
+    }
+
+
+    function renderTask() {
         listUl.innerHTML = ""
         arrTasks.forEach(function (task) {
             listUl.appendChild(generaterLi(task))
         })
     }
 
-    function addTask(task) {
-        arrTasks.push(
-        {
-            name: task,
-            createAt: Date.now(),
-            complete: false
-        }
-        )
-    }
-
-    todoAdd.addEventListener("submit", function (e) {
-        e.preventDefault()
-        let task = inputAddTask.value
-        addTask(task)
-        renderTask()
-        inputAddTask.focus()
-        inputAddTask.value = ""
-    });
 
     renderTask()
 })()
