@@ -180,14 +180,6 @@
     }
 
     listUl.addEventListener("click", clickedUl)
-
     renderTask()
-    
-    // function eventLi(li) {
-    //     li.addEventListener("click", function () {
-    //         console.log(this)
-    //     })
-    // }
-
 
 })()
