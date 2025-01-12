@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+	<title></title>
+	<link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+		integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+		crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<style>
+		body {
+			font-family: 'Open Sans', sans-serif;
+		}
+
+		button {
+			cursor: pointer;
+		}
+
+		#container {
+			width: 90%;
+			max-width: 600px;
+			margin: auto;
+		}
+
+		.card {
+			margin: 16px;
+			border: 1px solid #ccc;
+			padding: 16px 32px 32px 16px;
+			position: relative;
+		}
+
+		.card p {
+			margin: 0;
+		}
+
+		.card.text-hidden:after {
+			content: "";
+			display: block;
+			position: absolute;
+			left: 0;
+			bottom: 0;
+			width: 100%;
+			height: 64px;
+			background-image: linear-gradient(transparent, rgb(255, 255, 255) 80%);
+			pointer-events: none;
+		}
+
+		.card button {
+			position: absolute;
+			right: 0;
+			bottom: 0;
+			background-color: transparent;
+			z-index: 1;
+			border: none;
+			font-size: 1.5em;
+		}
+
+		.card button:hover {
+			color: red;
+		}
+
+
+		body,
+		html {
+			height: 100%;
+		}
+	</style>
+</head>
+
+<body>
+	<div id="container">
+		<div class="card">
+			<p><b>Psalm 23 - </b> 
+				<b>A psalm of David.</b> <br>
+				<b>1 - </b> The Lord is my shepherd, I lack nothing. <br>
+				<b>2 - </b>He makes me lie down in green pastures,
+				he leads me beside quiet waters, <br>
+				<b>3 - </b>     he refreshes my soul.
+				He guides me along the right paths
+					for his name’s sake. <br>
+				<b>4 - </b> Even though I walk
+					through the darkest valley,[a]
+				I will fear no evil,
+					for you are with me;
+				your rod and your staff,
+					they comfort me. <br>
+				
+				<b>5 - </b> You prepare a table before me
+					in the presence of my enemies.
+				You anoint my head with oil;
+					my cup overflows. <br>
+				<b>6 - </b> Surely your goodness and love will follow me
+					all the days of my life,
+				and I will dwell in the house of the Lord
+				</p>
+
+		</div>
+
+		<div class="card">
+			<p>
+				<b>Jhon - 14:6</b><br>
+				Jesus said to him, I am the way, the truth, and the life: no man comes to the Father, but by me.
+			</p>
+		</div>
+		<div class="card">
+			<p>
+				<b>PSalm - 91</b> <br>
+				<b>1 - </b> He that dwells in the secret place of the most High shall abide under the shadow of the Almighty. <br>
+				<b>2 - </b> I will say of the LORD, He is my refuge and my fortress: my God; in him will I trust. <br>
+				<b>3 - </b> Surely he shall deliver you from the snare of the fowler, and from the noisome pestilence. <br>
+				<b>4 - </b> He shall cover you with his feathers, and under his wings shall you trust: his truth shall be your shield and buckler. <br>
+				<b>5 - </b> You shall not be afraid for the terror by night; nor for the arrow that flies by day; <br>
+				<b>6 - </b> Nor for the pestilence that walks in darkness; nor for the destruction that wastes at noonday. <br>
+				<b>7 - </b> A thousand shall fall at your side, and ten thousand at your right hand; but it shall not come near you. <br>
+				<b>8 - </b> Only with your eyes shall you behold and see the reward of the wicked.<br>
+				<b>9 - </b> Because you have made the LORD, which is my refuge, even the most High, your habitation; <br>
+				<b>10 - </b> There shall no evil befall you, neither shall any plague come near your dwelling. <br>
+				<b>11 - </b> For he shall give his angels charge over you, to keep you in all your ways. <br>
+				<b>12 - </b> They shall bear you up in their hands, lest you dash your foot against a stone. <br>
+				<b>13 - </b> You shall tread on the lion and adder: the young lion and the dragon shall you trample under feet. <br>
+				<b>14 - </b> Because he has set his love on me, therefore will I deliver him: I will set him on high, because he has known my name. <br>
+				<b>15 - </b> He shall call on me, and I will answer him: I will be with him in trouble; I will deliver him, and honor him. <br>
+				<b>16 - </b> With long life will I satisfy him, and show him my salvation. <br>
+			</p>
+		</div>
+	</div>
+
+	<script type="text/javascript">
+		const paragrafos = Array.from(document.querySelectorAll(".card p"))
+		const origionalPar = paragrafos.map((p) => p.innerHTML)
+		const maxLenght = 180
+
+		paragrafos.forEach( function (p, i ) {
+			if(p.innerText.length > maxLenght) {
+				p.innerHTML = p.innerHTML.substring(0, maxLenght) + " ... "
+			}
+
+			p.parentElement.classList.add("text-hidden")
+			
+			const btn = document.createElement("button")
+			btn.innerHTML = '<i class="fa-solid fa-chevron-down"></i>'
+			p.parentElement.appendChild(btn)
+
+			btn.addEventListener("click", function (e) {
+				toggleText(e, p, i)
+			})
+		})
+
+		function toggleText (e,p,i){
+			const card= e.currentTarget.parentElement
+		
+			card.querySelector("i").classList.toggle("fa-chevron-down")
+			card.querySelector("i").classList.toggle("fa-chevron-up")
+			card.classList.toggle("text-hidden")
+
+			if(card.classList.contains("text-hidden")){
+				p.innerHTML = p.innerHTML.substring(0, maxLenght) + " ... "
+			} else {
+				p.innerHTML = origionalPar[i]
+			}
+
+
+		}
+
+
+
+	</script>
+</body>
+
+</html>
